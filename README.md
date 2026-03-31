@@ -1,30 +1,42 @@
-# API-NodeJs-Fastify-Postgre
-Video Management API 🚀
-Uma API RESTful de alta performance para gerenciamento de metadados de vídeos, desenvolvida para demonstrar conceitos de arquitetura moderna em Node.js.
+# 🚀 API Videos
 
-🛠️ Tecnologias e Decisões Técnicas
-Node.js: Runtime principal pela eficiência em operações de I/O.
+API RESTful para gerenciamento de vídeos, desenvolvida com Node.js e Fastify.
 
-Fastify: Escolhido em vez do Express por sua baixíssima sobrecarga (low overhead) e sistema de plugins eficiente.
+---
 
-PostgreSQL: Banco de dados relacional para garantir integridade e consistência dos dados.
+## 🔗 Deploy
+https://api-nodejs-fastify-postgres.onrender.com/
 
-Neon: Database-as-a-service (Serverless Postgres) que permite escalabilidade automática e facilidade no deploy.
+## 📌 Endpoints
 
-📌 Funcionalidades (CRUD)
-Create: Registro de novos vídeos (título, descrição, duração).
+### Listar vídeos
+GET /videos
 
-Read: Listagem de vídeos com suporte a filtros de busca (query params).
+### Criar vídeo
+POST /videos
 
-Update: Atualização de informações de vídeos existentes.
+Body:
+{
+  "title": "Meu vídeo",
+  "description": "Descrição",
+  "duration": 120
+}
 
-Delete: Remoção de registros do banco de dados.
+### Atualizar vídeo
+PUT /videos/:id
 
-🚀 Como rodar o projeto
-Clone o repositório: git clone https://github.com/Pvictor01/API-NodeJs-Fastify-Postgre.git
+### Deletar vídeo
+DELETE /videos/:id
 
-Instale as dependências: npm install
+---
 
-Configure suas variáveis de ambiente (.env) com a connection string do Neon.
+## 🧪 Como testar
 
-Execute a aplicação: npm run dev
+Você pode usar:
+- Postman
+- Insomnia
+
+Ou via terminal:
+
+```bash
+curl https://api-nodejs-fastify-postgres.onrender.com/videos
