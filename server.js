@@ -7,6 +7,14 @@ const server = fastify() //criando server
 //const database = new DatabaseMemory()  //database em memoria
 const database = new DatabasePostgres()  //database em postgres
 
+server.get("/", async () => {
+  return {
+    status: "ok",
+    project: "API Videos",
+    version: "1.0.0"
+  }
+})
+
 server.post('/videos', async (request, reply) => {  
   //const body = request.body
   const { title, description, duration } = request.body  //desestruturaçao
