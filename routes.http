@@ -1,33 +1,48 @@
+### Teste 1: Criar Vídeo com Sucesso (Caminho Feliz)
 POST https://api-nodejs-fastify-postgres.onrender.com/videos
 Content-Type: application/json
 
 {
-  "title": "Video node",
-  "description": "Primeiro video",
-  "duration": 60
+  "title": "Vídeo de TypeScript",
+  "description": "Ensinando como testar APIs com Zod e Fastify",
+  "duration": 100
 }
 
-
-####
-
-
-GET https://api-nodejs-fastify-postgres.onrender.com/videos
-
-
-###
- 
-
-PUT  https://api-nodejs-fastify-postgres.onrender.com/videos/2868118c-d8ec-4b47-bf16-2386f9066505
+### Teste 2: Erro de Validação (Título muito curto)
+# Deve retornar 400 Bad Request
+POST https://api-nodejs-fastify-postgres.onrender.com/videos
 Content-Type: application/json
 
 {
-  "title": "Video Atualizado",
-  "description": "Att video",
-  "duration": 90
+  "title": "Oi",
+  "description": "Descrição válida",
+  "duration": 100
 }
 
+### Teste 3: Erro de Validação (Duração negativa ou faltante)
+# Deve retornar 400 Bad Request
+POST https://api-nodejs-fastify-postgres.onrender.com/videos
+Content-Type: application/json
 
-###
+{
+  "title": "Vídeo Teste",
+  "description": "Descrição válida",
+  "duration": -5
+}
 
+### Atualizar um vídeo existente
+# Substitua o ID abaixo por um ID real do seu banco
+PUT https://api-nodejs-fastify-postgres.onrender.com/videos/COLOQUE_O_ID_AQUI
 
-DELETE https://api-nodejs-fastify-postgres.onrender.com/videos/4dfa24a9-a26e-4266-b361-df7f67eeae75
+{
+  "title": "Vídeo Atualizado com TS",
+  "description": "Nova descrição validada pelo Zod",
+  "duration": 250
+}
+
+### Deletar um vídeo
+# Substitua o ID abaixo por um ID real do seu banco
+DELETE https://api-nodejs-fastify-postgres.onrender.com/videos/COLOQUE_O_ID_AQUI
+
+### Teste 4: Listar Vídeos
+GET https://api-nodejs-fastify-postgres.onrender.com/videos?search=TypeScript
