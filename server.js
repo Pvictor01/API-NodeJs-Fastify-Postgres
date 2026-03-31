@@ -7,14 +7,18 @@ const server = fastify() //criando server
 //const database = new DatabaseMemory()  //database em memoria
 const database = new DatabasePostgres()  //database em postgres
 
-server.get("/", async () => {
+server.get("/", async () => {  //add rota raiz com visao geral
   return {
     status: "ok",
     project: "API Videos",
-    version: "1.0.0"
+    endpoints: {
+      list: "/videos",
+      create: "POST /videos",
+      update: "PUT /videos/:id",
+      delete: "DELETE /videos/:id"
+    }
   }
 })
-
 server.post('/videos', async (request, reply) => {  
   //const body = request.body
   const { title, description, duration } = request.body  //desestruturaçao
